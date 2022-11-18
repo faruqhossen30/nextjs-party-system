@@ -13,46 +13,55 @@ import { useContext } from 'react'
 import { AuthContext } from '../../contexts/AuthContext'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
+import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import PostSkeleton from '../Skeleton/PostSkeleton'
 
 
 const HomePage = () => {
     const { user } = useContext(AuthContext);
+    // const user = null
     const router = useRouter()
     return (
         <>
-            {user ?
+            {!user &&
+                (
+                    <div className="grid grid-cols-12 mx-auto">
+                        <div className="hidden md:block md:col-span-3 ">
+                            <div className='bg-white p-2 my-2'>
+                                <Skeleton count={20} />
+                            </div>
+                        </div>
+                        <div className="col-span-12 md:col-span-6 px-1 py-2 rounded">
+                            <PostSkeleton />
+                            <PostSkeleton />
+                            <PostSkeleton />
+                        </div>
+                        <div className="hidden md:block md:col-span-3">
+                            <div className='bg-white p-2 my-2'>
+                                <Skeleton count={20} />
+                            </div>
+                        </div>
+                    </div>
+                )
+            }
+            {user &&
                 (<div className="grid grid-cols-12 mx-auto">
                     <div className="hidden md:block md:col-span-3">
-
                         <HomepageProfile />
-
                         <HomepageLike />
-
                         <HomepageAdvertisement />
-
                         <HomepageSuggestiongroup />
-
                     </div>
                     <div className="col-span-12 md:col-span-6 px-1 py-2 rounded">
-
                         <HomepageCreatepost />
-
-                        <HomepageStory />
-
+                        {/* <HomepageStory /> */}
                         <HomepageSinglefeed />
-
                     </div>
                     <div className="hidden md:block md:col-span-3">
-
                         <HomepageBirthday />
-
                         <HomepageFollow />
-
                     </div>
                 </div>)
-                :
-                'not login'
-
             }
         </>
     )

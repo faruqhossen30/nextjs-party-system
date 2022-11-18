@@ -11,7 +11,7 @@ const HomepageSuggestiongroup = () => {
                 <div className='mt-4'>
                     <Link href='#' className='flex items-center mb-6'>
                         <div>
-                            <img src="https://images.prothomalo.com/prothomalo-bangla%2F2022-10%2Ff717609c-4123-4215-a5a5-104aca30db48%2FPakistan_1.jpg?auto=format%2Ccompress&format=webp&w=640&dpr=1.0" alt="" className='rounded w-16 h-16' />
+                            <img src="profile.jpg" alt="" className='rounded w-16 h-16' />
                         </div>
                         <div className='ml-4 capitalize'>
                             <h6><strong>Graphic Design</strong></h6>
@@ -21,7 +21,7 @@ const HomepageSuggestiongroup = () => {
                     </Link>
                     <Link href='#' className='flex items-center mb-6'>
                         <div>
-                            <img src="https://images.prothomalo.com/prothomalo-bangla%2F2022-10%2Ff717609c-4123-4215-a5a5-104aca30db48%2FPakistan_1.jpg?auto=format%2Ccompress&format=webp&w=640&dpr=1.0" alt="" className='rounded w-16 h-16' />
+                            <img src="profile.jpg" alt="" className='rounded w-16 h-16' />
                         </div>
                         <div className='ml-4 capitalize'>
                             <h6><strong>Graphic Design</strong></h6>
@@ -31,7 +31,7 @@ const HomepageSuggestiongroup = () => {
                     </Link>
                     <Link href='#' className='flex items-center mb-6'>
                         <div>
-                            <img src="https://images.prothomalo.com/prothomalo-bangla%2F2022-10%2Ff717609c-4123-4215-a5a5-104aca30db48%2FPakistan_1.jpg?auto=format%2Ccompress&format=webp&w=640&dpr=1.0" alt="" className='rounded w-16 h-16' />
+                            <img src="profile.jpg" alt="" className='rounded w-16 h-16' />
                         </div>
                         <div className='ml-4 capitalize'>
                             <h6><strong>Graphic Design</strong></h6>

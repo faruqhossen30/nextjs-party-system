@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import _ from 'lodash'
 import { Fragment, useContext, useEffect, useRef, useState } from 'react'
 import { FaBell, FaEnvelopeOpen, FaHome, FaPowerOff, FaSearch, FaUserCircle } from 'react-icons/fa'
 import Dropdown from 'react-bootstrap/Dropdown'
@@ -32,10 +33,10 @@ export default function Navnew() {
                                     />
                                 </Link>
                                 <div className="hidden md:block w-full">
-                                    <div className="rounded-full h-9 bg-white font-sans text-black flex items-center justify-end w-full">
+                                    <div className="rounded-full p-3 ring ring-gray-400 h-9 bg-white font-sans text-black flex items-center justify-end w-full">
                                         <input
                                             type="text"
-                                            className="h-7 w-full rounded-full border-0 border-transparent focus:border-transparent focus:ring-0"
+                                            className="h-7 w-full rounded-full focus:outline-0"
                                             placeholder="Search..."></input>
                                         <button className="px-0 md:px-4">
                                             <FaSearch className="h-4 pr-1" />{' '}
@@ -191,14 +192,14 @@ export default function Navnew() {
                                     </form>
                                 </li>
                                 {/* Profiel image */}
-                                <li>
-                                    name: {profile && profile.name}                                    
+                                <li>                                   
                                     <Dropdown>
                                         <Dropdown.Toggle id="dropdown-basic">
                                             <img
-                                                src='/profile.jpg'
-                                                // src={user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${user.avatar}` : 'profile.jpg'}
-                                                alt=""
+                                                // src='/profile.jpg'
+                                                // src={profile && _.isNull(profile.avatar) ? '/profile.jpg' : `${process.env.NEXT_PUBLIC_BACKEND_URL}/${profile.avatar}`}
+                                                src={profile && _.isNull(profile.avatar) ?  `${process.env.NEXT_PUBLIC_BACKEND_URL}/${profile.avatar}`:'/profile.jpg'}
+                                                alt="avatar"
                                                 className="w-10 h-10 ring-1 ring-white rounded-full mr-1"
                                             />
                                         </Dropdown.Toggle>

@@ -24,12 +24,19 @@ export const AuthContextProvider = ({children})=>{
     const [state, dispatch]= useReducer(authReducer, {
         user: null
     });
+    
 
     useEffect(()=>{
         // const user = JSON.parse(localStorage.getItem('user'))
         const token = localStorage.getItem('token')
         if(token){
-            axios.get(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/user`)
+            const config = {
+                headers: {
+                    'Authorization': `Bearer ${token}`
+                  }
+              };
+            axios.defaults.headers.common['Authorization'] = `Bearer ${token}`;
+            axios.get(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/user`)            
             .then((res)=>{
                 console.log(res.data);
                 dispatch({type: 'USER', payload: res.data});
