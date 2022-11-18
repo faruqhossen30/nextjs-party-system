@@ -1,11 +1,22 @@
 import Link from 'next/link'
-import { Fragment, useEffect, useRef, useState } from 'react'
+import { Fragment, useContext, useEffect, useRef, useState } from 'react'
 import { FaBell, FaEnvelopeOpen, FaHome, FaPowerOff, FaSearch, FaUserCircle } from 'react-icons/fa'
 import Dropdown from 'react-bootstrap/Dropdown'
+import { AuthContext } from '../../contexts/AuthContext'
 
 export default function Navnew() {
-    return (
-        <>
+    const{user} = useContext(AuthContext)
+    const[isLoading, setIsLoading] = useState(true);
+    const[profile, setProfile] = useState(null);
+    useEffect(()=>{
+        setProfile(user);
+        setIsLoading(false);
+    });
+
+    if(isLoading){
+        return <h2>Loading</h2>
+    }else{
+        return (
             <div className="bg-emerald-700 py-2 px-2 sticky top-0 z-50">
                 <section className="mx-auto">
                     <div className=" grid grid-cols-12 items-center">
@@ -181,6 +192,7 @@ export default function Navnew() {
                                 </li>
                                 {/* Profiel image */}
                                 <li>
+                                    name: {profile && profile.name}                                    
                                     <Dropdown>
                                         <Dropdown.Toggle id="dropdown-basic">
                                             <img
@@ -224,6 +236,6 @@ export default function Navnew() {
                     </div>
                 </section>
             </div>
-        </>
-    )
+        )
+    }
 }

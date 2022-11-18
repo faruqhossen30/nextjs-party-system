@@ -9,40 +9,51 @@ import HomepageSinglefeed from './HomepageSinglefeed'
 import HomepageStory from './HomepageStory'
 import HomepageSuggestiongroup from './HomepageSuggestiongroup'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { useContext } from 'react'
+import { AuthContext } from '../../contexts/AuthContext'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 
 
 const HomePage = () => {
+    const { user } = useContext(AuthContext);
+    const router = useRouter()
     return (
         <>
-            <div className="grid grid-cols-12 mx-auto">
-                <div className="hidden md:block md:col-span-3">
+            {user ?
+                (<div className="grid grid-cols-12 mx-auto">
+                    <div className="hidden md:block md:col-span-3">
 
-                    <HomepageProfile />
+                        <HomepageProfile />
 
-                    <HomepageLike />
+                        <HomepageLike />
 
-                    <HomepageAdvertisement />
+                        <HomepageAdvertisement />
 
-                    <HomepageSuggestiongroup />
+                        <HomepageSuggestiongroup />
 
-                </div>
-                <div className="col-span-12 md:col-span-6 px-1 py-2 rounded">
+                    </div>
+                    <div className="col-span-12 md:col-span-6 px-1 py-2 rounded">
 
-                    <HomepageCreatepost />
+                        <HomepageCreatepost />
 
-                    <HomepageStory />
+                        <HomepageStory />
 
-                    <HomepageSinglefeed />
+                        <HomepageSinglefeed />
 
-                </div>
-                <div className="hidden md:block md:col-span-3">
+                    </div>
+                    <div className="hidden md:block md:col-span-3">
 
-                    <HomepageBirthday />
+                        <HomepageBirthday />
 
-                    <HomepageFollow />
+                        <HomepageFollow />
 
-                </div>
-            </div>
+                    </div>
+                </div>)
+                :
+                'not login'
+
+            }
         </>
     )
 }
