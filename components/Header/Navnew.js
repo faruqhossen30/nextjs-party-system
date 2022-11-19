@@ -2,6 +2,7 @@ import Link from 'next/link'
 import _ from 'lodash'
 import { Fragment, useContext, useEffect, useRef, useState } from 'react'
 import { FaBell, FaEnvelopeOpen, FaHome, FaPowerOff, FaSearch, FaUserCircle } from 'react-icons/fa'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { AuthContext } from '../../contexts/AuthContext'
 
@@ -13,6 +14,12 @@ export default function Navnew() {
         setProfile(user);
         setIsLoading(false);
     });
+
+    const logoutHandaller = ()=>{
+        localStorage.clear();
+        let url = window.location.origin+'/login'
+        window.location.assign(url);        
+    }
 
     if(isLoading){
         return <h2>Loading</h2>
@@ -220,7 +227,7 @@ export default function Navnew() {
                                                 </Link>
                                             </Dropdown.Item>
                                             {/* Logout  */}
-                                            <Dropdown.Item as="button" className='py-0 px-2'>
+                                            <Dropdown.Item as="button" className='py-0 px-2' onClick={logoutHandaller} >
                                                 <div className='flex items-center' >
                                                     <FaPowerOff className='h-8' />
                                                     <div className='fs-10 p-2'>

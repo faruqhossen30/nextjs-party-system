@@ -6,21 +6,15 @@ import HomepageFollow from './HomepageFollow'
 import HomepageLike from './HomepageLike'
 import HomepageProfile from './HomepageProfile'
 import HomepageSinglefeed from './HomepageSinglefeed'
-import HomepageStory from './HomepageStory'
 import HomepageSuggestiongroup from './HomepageSuggestiongroup'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { useContext } from 'react'
-import { AuthContext } from '../../contexts/AuthContext'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
 import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
 import PostSkeleton from '../Skeleton/PostSkeleton'
 
 
-const HomePage = () => {
-    const { user } = useContext(AuthContext);
+const HomePage = ({user}) => {
+    
     // const user = null
-    const router = useRouter()
+
     return (
         <>
             {!user &&

@@ -14,7 +14,6 @@ const HomepageSinglefeed = () => {
     useEffect(() => {
         axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
             .then((res) => {
-                console.log(res);
                 setPosts(res.data.data)
                 setIsLoading(false)
             })

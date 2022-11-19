@@ -1,34 +1,40 @@
+
 import { useRouter } from "next/router";
-import { useContext, useRef } from "react"
+import { use, useContext, useRef, useState } from "react"
 import { AuthContext } from "../contexts/AuthContext";
 import axios from "../lib/axios";
 
 const Login = () => {
     const { dispatch, user } = useContext(AuthContext)
+    const router = useRouter();
     console.log('uthContext user', user);
+    // State
+    const[error, setError]=useState();
+    
     const email = useRef();
     const password = useRef();
-    const router = useRouter()
 
     const loginSubmit = async (e) => {
         e.preventDefault();
 
         // dispatch({type:'LOGIN', payload:'abc'});
-        console.log('authContext user2=', user);
+        // console.log('authContext user2=', user);
         const csrf = await axios.get('/sanctum/csrf-cookie');
         const formData = new FormData();
-        formData.append('email', 'admin@gmail.com')
-        formData.append('password', '123')
-
+        formData.append('email', email.current.value)
+        formData.append('password', password.current.value)
+        console.log(formData);
+        console.log(email.current.value);
         axios.post(`${process.env.NEXT_PUBLIC_BACKEND_API_URL}/user/login`, formData)
             .then((res) => {
                 console.log(res);
                 localStorage.setItem('user', JSON.stringify(res.data.data));
                 localStorage.setItem('token', res.data.token);
-
+                window.location.assign(window.location.origin);
             })
             .catch((err) => {
                 console.log('this is error', err);
+                setError(err.response.data.message)
             })
     }
     if (!user) {
@@ -54,6 +60,9 @@ const Login = () => {
                                 <label htmlFor="password" className="sr-only">Password</label>
                                 <input id="password" name="password" ref={password} type="password" autoComplete="current-password" required className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password" />
                             </div>
+                            <div>
+                                {error && <p className=" font-semibold text-red-600 text-sm py-1">{error}</p> }
+                            </div>
                         </div>
 
                         <div className="flex items-center justify-between">
@@ -78,9 +87,8 @@ const Login = () => {
             </div>
         )
     } else {
-        return (
-            <h3>some</h3>
-        )
+        return window.location.assign(window.location.origin);
+        
     }
 }
 
