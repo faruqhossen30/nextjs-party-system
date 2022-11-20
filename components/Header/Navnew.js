@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import _ from 'lodash'
 import { Fragment, useContext, useEffect, useRef, useState } from 'react'
-import { FaBell, FaEnvelopeOpen, FaHome, FaPowerOff, FaSearch, FaUserCircle } from 'react-icons/fa'
+import { FaBell, FaEnvelopeOpen, FaHome, FaPoll, FaPowerOff, FaSearch, FaUserCircle } from 'react-icons/fa'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { AuthContext } from '../../contexts/AuthContext'
@@ -65,68 +65,17 @@ export default function Navnew() {
                                     </Link>
                                 </li>
                                 <li>
+                                    <Link href="/polls" className="text-lg text-white">
+                                        <FaPoll className="h-6 w-6" />{' '}
+                                    </Link>
+                                </li>
+                                <li>
                                     <Link href="/profile" className="text-lg text-white">
                                         <FaUserCircle className="h-6 w-6" />{' '}
                                     </Link>
                                 </li>
-                                <li>
-                                    <Dropdown>
-                                        <Dropdown.Toggle id="dropdown-basic">
-                                            <a
-                                                href="#"
-                                                className="text-white relative">
-                                                <FaEnvelopeOpen className="h-6 w-6" />
-                                                <span className="absolute -top-4 -right-3 animate-pulse font-extrabold  bg-clip-text bg-gradient-to-r from-emerald-400 to-pink-600">
-                                                    2
-                                                </span>
-                                            </a>
-                                        </Dropdown.Toggle>
+                                
 
-                                        <Dropdown.Menu className="p-2 w-72 overflow-auto h-96">
-                                            <div className="flex items-center justify-between pt-0 p-2">
-                                                <h6 className="font-bold m-0">
-                                                    Messages
-                                                </h6>
-                                                <span className="cursor-pointer">
-                                                    ...
-                                                </span>
-                                            </div>
-                                            <div className="">
-                                                <input
-                                                    type="text"
-                                                    className="h-10 w-full rounded-full bg-gray-100 border-0  focus:ring-0"
-                                                    placeholder="Search..."></input>
-                                            </div>
-                                            <Dropdown.Item href="#/action-1">
-                                                <Link href="/settings">
-                                                    <a className="flex items-center">
-                                                        <img
-                                                            src="/avatar.jpg"
-                                                            className="w-10 h-10 rounded-full"
-                                                            alt="najmul"
-                                                        />
-
-                                                        <div className="ml-2">
-                                                            <h6 className="m-0 capitalize">
-                                                                najmul hasan
-                                                            </h6>
-                                                            <p className="m-0 py-.5 text-muted">
-                                                                lorem ipsum
-                                                                dolor aset
-                                                            </p>
-                                                            <span className="capitalize">
-                                                                20 Minits ago
-                                                            </span>
-                                                        </div>
-                                                    </a>
-                                                </Link>
-                                            </Dropdown.Item>
-                                            <button className="bg-emerald-800 text-white block w-full rounded py-2 text-lg font-medium mt-2">
-                                                See All
-                                            </button>
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </li>
                                 <li>
                                     <Dropdown>
                                         <Dropdown.Toggle id="dropdown-basic">
