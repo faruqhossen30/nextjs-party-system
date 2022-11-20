@@ -1,53 +1,30 @@
 import React, { useEffect, useState } from 'react'
 import moment from 'moment';
 import { FaFileVideo, FaThumbsUp, FaShareAlt, FaRegCommentDots } from 'react-icons/fa'
-import axios from '../../lib/axios';
 import Like from '../Post/Like';
-import { render } from 'react-dom';
-import Skeleton from 'react-loading-skeleton';
-import PostSkeleton from '../Skeleton/PostSkeleton';
 
-const HomepageSinglefeed = () => {
 
-    const [posts, setPosts] = useState([]);
+const Post = ({ posts }) => {
     const [isLoading, setIsLoading] = useState(true)
-    useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
-            .then((res) => {
-                setPosts(res.data.data)
-                setIsLoading(false)
-            })
-            .catch(err => console.log(err))
-    }, []);
-
 
     return (
         <>
-            {isLoading &&
-                (
-                    <>
-                        <PostSkeleton />
-                        <PostSkeleton />
-                        <PostSkeleton />
-                    </>
-                )
-            }
-            {posts &&
+            {
                 posts.map((post, index) => {
                     return (
                         <div className='mb-3 bg-white rounded' key={index}>
                             <div className='flex items-center justify-between p-3'>
                                 <div className='flex items-center'>
                                     {/* <a href='#'><img src="/profile.jpg" alt="" className='rounded-full w-12 h-12' /></a> */}
-                                    <a href='#'><img src={post.user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${post.user.avatar}` : 'profile.jpg'} alt="" className='rounded-full w-12 h-12' /></a>
+                                    <a href='#'><img src={post.user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${post.user.avatar}` : '/profile.jpg'} alt="" className='rounded-full w-12 h-12' /></a>
                                     <div className='ml-2 capitalize'>
-                                    <a href={`/people/${post.user.id}`}>
+                                        <a href={`/people/${post.user.id}`}>
                                             <h6 className='leading-none p-0 m-0'> {post.user.name}</h6>
                                         </a>
                                         <a href={`/post/${post.id}`}>
-                                        <span className='text-sm text-gray-600'>{moment(post.created_at).fromNow()}</span>
+                                            <span className='text-sm text-gray-600'>{moment(post.created_at).fromNow()}</span>
                                         </a>
-                                        
+
                                     </div>
                                 </div>
                                 <div>
@@ -83,4 +60,4 @@ const HomepageSinglefeed = () => {
     )
 }
 
-export default HomepageSinglefeed
+export default Post
