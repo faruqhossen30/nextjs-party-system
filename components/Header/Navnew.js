@@ -221,9 +221,9 @@ export default function Navnew() {
                                                 </Link>
                                             </Dropdown.Item>
                                             <Dropdown.Item href="#/action-2">
-                                                <Link href="/following" className="flex items-center font-medium">
+                                                <Link href="/people" className="flex items-center font-medium">
                                                     <FaUserCircle className="mr-2" />
-                                                    Following
+                                                    People
                                                 </Link>
                                             </Dropdown.Item>
                                             {/* Logout  */}

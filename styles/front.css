@@ -1,39 +1,45 @@
-body{
+body {
     background-color: #ddd !important;
 }
-a{
+
+a {
     text-decoration: none !important;
     color: black !important;
 }
-.form-control:focus{
+
+.form-control:focus {
     outline: none !important;
-    border-color:#047857 !important;
+    border-color: #047857 !important;
     box-shadow: none !important;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+.nav-pills .nav-link.active,
+.nav-pills .show>.nav-link {
     color: #fff !important;
     background-color: #047857 !important;
 }
+
 .card.text-center {
     border-radius: inherit;
     border: none;
 }
 
-.dropdown-toggle::after{
+.dropdown-toggle::after {
     display: none !important;
 }
+
 button#dropdown-basic {
     background: transparent;
     border: none;
 }
+
 .dropdown-menu.show {
     inset: inherit !important;
     transform: inherit !important;
     position: absolute !important;
     right: 0 !important;
     margin: 0;
-    position: relative; 
+    position: relative;
     padding: 5px;
     border-radius: inherit;
 }
@@ -46,22 +52,25 @@ button#dropdown-basic {
     justify-content: center;
     align-items: center;
     border: 1px solid #ddd;
-  }
-  
-  .VideoInput_input {
+}
+
+.VideoInput_input {
     /* display: none; */
-  }
-  
-  .VideoInput_video {
+}
+
+.VideoInput_video {
     display: block;
     margin: 0;
-  }
-  
-  .VideoInput_footer {
+}
+
+.VideoInput_footer {
     background: #eee;
     width: 100%;
     min-height: 40px;
     line-height: 40px;
     text-align: center;
-  }
-  
+}
+
+nav.bradcrumb-space {
+    padding: 20px 0px 0px 15px;
+}
