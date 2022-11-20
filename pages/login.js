@@ -9,8 +9,8 @@ const Login = () => {
     const router = useRouter();
     console.log('uthContext user', user);
     // State
-    const[error, setError]=useState();
-    
+    const [error, setError] = useState();
+
     const email = useRef();
     const password = useRef();
 
@@ -61,7 +61,7 @@ const Login = () => {
                                 <input id="password" name="password" ref={password} type="password" autoComplete="current-password" required className="relative block w-full appearance-none rounded-none rounded-b-md border border-gray-300 px-3 py-2 text-gray-900 placeholder-gray-500 focus:z-10 focus:border-indigo-500 focus:outline-none focus:ring-indigo-500 sm:text-sm" placeholder="Password" />
                             </div>
                             <div>
-                                {error && <p className=" font-semibold text-red-600 text-sm py-1">{error}</p> }
+                                {error && <p className=" font-semibold text-red-600 text-sm py-1">{error}</p>}
                             </div>
                         </div>
 
@@ -88,7 +88,7 @@ const Login = () => {
         )
     } else {
         return window.location.assign(window.location.origin);
-        
+
     }
 }
 
