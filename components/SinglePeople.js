@@ -1,4 +1,6 @@
 import React from 'react'
+import Button from 'react-bootstrap/Button';
+import { FaPlusCircle } from 'react-icons/fa';
 
 const singlePeople = () => {
     return (
@@ -23,7 +25,12 @@ const singlePeople = () => {
                     252
                     <span className="ml-1 text-xs text-muted">Followers</span>
                 </h2>
-                <button>Following</button>
+                <Button className='' variant="outline-success ">
+                    <div className='flex items-center space-x-1'>
+                    <span><FaPlusCircle /></span>
+                    <span>Follow</span>
+                    </div>
+                </Button>{' '}
             </div>
         </div>
     )
