@@ -26,7 +26,7 @@ const HomepageFollow = () => {
                             return (
                                 <div className='flex items-center justify-between mb-4' key={index}>
                                     <div className='flex items-center'>
-                                        <img src={user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${user.avatar}` : 'profile.jpg'} alt="" className='rounded-full w-12 h-12' />
+                                        <img src={user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${user.avatar}` : '/profile.jpg'} alt="" className='rounded-full w-12 h-12' />
                                         <Link href="#">
                                             <h6 className='ml-2 capitalize text-base'><strong>{user.name}</strong></h6>
                                         </Link>

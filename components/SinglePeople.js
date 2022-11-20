@@ -2,17 +2,17 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 import { FaPlusCircle } from 'react-icons/fa';
 
-const singlePeople = () => {
+const singlePeople = (post, index) => {
     return (
         <div className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-3 bg-white rounded mb-1 shadow-xl">
             <div className="ml-2 flex items-center py-2">
                 <img
-                    src="/user.jpg"
+                    src="/profile.jpg"
                     alt=""
                     className="rounded w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
                 />
                 <div className="ml-2">
-                    <a href="#">
+                    <a href="profile">
                         <h6 className="capitalize text-sm m-0 sm:text-md md:text-xl">
                             <strong>najmul Hasan</strong>
                         </h6>
