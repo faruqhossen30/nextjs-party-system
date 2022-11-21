@@ -1,11 +1,13 @@
 import axios from '../../lib/axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
+import { FaPlusCircle } from 'react-icons/fa';
+import FollowButton from '../Button/FollowButton';
 
 const HomepageFollow = () => {
     const [people, setPeople] = useState([]);
     useEffect(() => {
-        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/people`)
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/follow/suggestion`)
             .then((res) => {
                 setPeople(res.data)
             })
@@ -31,7 +33,7 @@ const HomepageFollow = () => {
                                             <h6 className='ml-2 capitalize text-base'><strong>{user.name}</strong></h6>
                                         </Link>
                                     </div>
-                                    <button className="text-xs bg-gray-600 px-1 text-base leading-7 text-white shadow-sm ring-1 ring-emerald-600 hover:bg-emerald-800 hover:ring-indigo-700">Follow</button>
+                                    <FollowButton followerid={user.id} />
                                 </div>
                             )
                         })

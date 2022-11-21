@@ -6,6 +6,7 @@ import Like from '../Post/Like';
 import { render } from 'react-dom';
 import Skeleton from 'react-loading-skeleton';
 import PostSkeleton from '../Skeleton/PostSkeleton';
+import Link from 'next/link';
 
 const HomepageSinglefeed = () => {
 
@@ -39,15 +40,15 @@ const HomepageSinglefeed = () => {
                             <div className='flex items-center justify-between p-3'>
                                 <div className='flex items-center'>
                                     {/* <a href='#'><img src="/profile.jpg" alt="" className='rounded-full w-12 h-12' /></a> */}
-                                    <a href='#'><img src={post.user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${post.user.avatar}` : 'profile.jpg'} alt="" className='rounded-full w-12 h-12' /></a>
+                                    <Link href={`/people/${post.user.id}`}><img src={post.user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${post.user.avatar}` : 'profile.jpg'} alt="" className='rounded-full w-12 h-12' /></Link>
                                     <div className='ml-2 capitalize'>
-                                    <a href={`/people/${post.user.id}`}>
+                                        <Link href={`/people/${post.user.id}`}>
                                             <h6 className='leading-none p-0 m-0'> {post.user.name}</h6>
-                                        </a>
-                                        <a href={`/post/${post.id}`}>
-                                        <span className='text-sm text-gray-600'>{moment(post.created_at).fromNow()}</span>
-                                        </a>
-                                        
+                                        </Link>
+                                        <Link href={`/post/${post.id}`}>
+                                            <span className='text-sm text-gray-600'>{moment(post.created_at).fromNow()}</span>
+                                        </Link>
+
                                     </div>
                                 </div>
                                 <div>
