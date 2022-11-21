@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import moment from 'moment';
-import { FaFileVideo, FaThumbsUp, FaShareAlt, FaRegCommentDots } from 'react-icons/fa'
+import { FaRegEdit, FaUserCircle, FaShareAlt, FaRegCommentDots, FaTrash, FaRegWindowClose } from 'react-icons/fa'
 import axios from '../../lib/axios';
 import Like from '../Post/Like';
-import { render } from 'react-dom';
-import Skeleton from 'react-loading-skeleton';
+import 'bootstrap/dist/css/bootstrap.min.css'
+import Dropdown from 'react-bootstrap/Dropdown'
 import PostSkeleton from '../Skeleton/PostSkeleton';
 import Link from 'next/link';
 
@@ -39,7 +39,6 @@ const HomepageSinglefeed = () => {
                         <div className='mb-3 bg-white rounded' key={index}>
                             <div className='flex items-center justify-between p-3'>
                                 <div className='flex items-center'>
-                                    {/* <a href='#'><img src="/profile.jpg" alt="" className='rounded-full w-12 h-12' /></a> */}
                                     <Link href={`/people/${post.user.id}`}><img src={post.user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${post.user.avatar}` : 'profile.jpg'} alt="" className='rounded-full w-12 h-12' /></Link>
                                     <div className='ml-2 capitalize'>
                                         <Link href={`/people/${post.user.id}`}>
@@ -52,7 +51,33 @@ const HomepageSinglefeed = () => {
                                     </div>
                                 </div>
                                 <div>
-                                    ...
+                                    <Dropdown>
+                                        <Dropdown.Toggle id="dropdown-basic">
+                                            ...
+                                        </Dropdown.Toggle>
+
+                                        <Dropdown.Menu className='border-0'>
+                                            <Dropdown.Item>
+                                                <Link href={`/post/edit/${post.id}`} className="flex items-center font-medium">
+                                                    <FaRegEdit className="mr-2" />
+                                                    Edit
+                                                </Link>
+                                            </Dropdown.Item>
+                                            <Dropdown.Item href="#">
+                                                <Link href="#" className="flex items-center font-medium">
+                                                    <FaUserCircle className="mr-2" />
+                                                    Hide
+                                                </Link>
+                                            </Dropdown.Item>
+                                            <Dropdown.Item as="button" className='py-0 px-2' >
+                                                <Link href="#" className="flex items-center font-medium">
+                                                    <FaTrash className="mr-2" />
+                                                    Remove
+                                                </Link>
+                                            </Dropdown.Item>
+
+                                        </Dropdown.Menu>
+                                    </Dropdown>
                                 </div>
                             </div>
                             <div>
