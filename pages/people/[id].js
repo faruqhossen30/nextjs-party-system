@@ -11,10 +11,7 @@ import Link from 'next/link';
 import HomepageFollow from '../../components/HomePage/HomepageFollow';
 import Post from '../../components/Post/Post';
 
-
-
-const profile = ({ people,posts }) => {
-
+const profile = ({ people, posts }) => {
     return (
         <>
             <Navnew />
@@ -36,7 +33,7 @@ const profile = ({ people,posts }) => {
                                     <h6 className="capitalize text-2xl">
                                         <strong>{people.name}</strong>
                                     </h6>
-                                    <h6>Address: {people.address ? people.address: 'N/A'}</h6>
+                                    <h6>Address: {people.address ? people.address : 'N/A'}</h6>
                                 </div>
                             </div>
                         </div>
@@ -46,19 +43,7 @@ const profile = ({ people,posts }) => {
                                 <h2 className="text-3xl m-0">
                                     <strong>22323</strong>
                                 </h2>
-                                <span>Likes</span>
-                            </div>
-                            <div className="text-center pr-6">
-                                <h2 className="text-3xl m-0">
-                                    <strong>22323</strong>
-                                </h2>
-                                <span>Likes</span>
-                            </div>
-                            <div className="text-center">
-                                <h2 className="text-3xl m-0">
-                                    <strong>22323</strong>
-                                </h2>
-                                <span>Likes</span>
+                                <span>Followers</span>
                             </div>
                         </div>
 
@@ -99,10 +84,8 @@ const profile = ({ people,posts }) => {
                     <Tab.Content>
                         <Tab.Pane eventKey="tileline">
                             <div className='mt-1 rounded'>
-
                                 <div className="grid grid-cols-12 mx-auto">
                                     <div className="hidden md:block md:col-span-3">
-
                                         {/* homepage like */}
                                         <div className='p-2 bg-white m-2 rounded'>
                                             <h6>
@@ -277,7 +260,7 @@ const profile = ({ people,posts }) => {
                                                 <strong>Follow Now </strong>
                                             </h6>
                                             <div className='mt-6'>
-                                            <HomepageFollow />
+                                                <HomepageFollow />
                                             </div>
                                         </div>
 
@@ -442,31 +425,24 @@ const profile = ({ people,posts }) => {
                                 </div>
                             </div>
                         </Tab.Pane> */}
-
-
-
-
-
                     </Tab.Content>
                 </Tab.Container>
             </div>
-
-
         </>
     )
 }
 
 export async function getServerSideProps({ query }) {
-    console.log('qeuery paramiter', query.id);
+    // console.log('qeuery paramiter', query.id);
 
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/people/${query.id}`)
     const people = await res.data
-    const postres  = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
+    const postres = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
     const posts = postres.data.data
     console.log(people);
 
     return {
-        props: { people,posts } // will be passed to the page component as props
+        props: { people, posts } // will be passed to the page component as props
     }
 }
 
