@@ -308,7 +308,7 @@ const profile = () => {
                                             <div className='mt-6'>
                                                 <div className='flex items-center justify-between mb-4' >
                                                     <div className='flex items-center'>
-                                                        <img src='' alt="" className='rounded-full w-12 h-12' />
+                                                        <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
                                                         <a >
                                                             <h6 className='ml-2 capitalize text-base'>name</h6>
                                                         </a>

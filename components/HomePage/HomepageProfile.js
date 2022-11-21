@@ -37,18 +37,18 @@ const HomepageProfile = () => {
                         </div>
 
                         <div className='relative pt-24 flex items-center justify-evenly'>
-                            <div className='text-center border-r-2 border-indigo-600 pr-6'>
+                            <div className='text-center'>
                                 <h6><strong>22323</strong></h6>
-                                <span>Likes</span>
+                                <span>Followers</span>
                             </div>
-                            <div className='text-center border-r-2 border-indigo-600 pr-6'>
+                            {/* <div className='text-center border-r-2 border-indigo-600 pr-6'>
                                 <h6><strong>22323</strong></h6>
                                 <span>Likes</span>
                             </div>
                             <div className='text-center'>
                                 <h6><strong>22323</strong></h6>
                                 <span>Likes</span>
-                            </div>
+                            </div> */}
                         </div>
 
                         <div className='flex items-center justify-center py-4'>
@@ -57,13 +57,14 @@ const HomepageProfile = () => {
                         </div>
 
                         <div className='text-center'>
-                            <div className='flex justify-center'>
-                                <a href=""> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
-                                <a href=""> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
-                                <a href=""> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
-                                <a href=""> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
-                                <a href=""> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
+                            <div class="flex -space-x-1 overflow-hidden items-center justify-center">
+                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
+                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
+                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
+                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
+                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
                             </div>
+
                             <button className='py-2 mt-4 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>View Profile</button>
                         </div>
 
