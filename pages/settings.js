@@ -1,16 +1,28 @@
-import React from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import Navnew from '../components/Header/Navnew'
 import Tab from 'react-bootstrap/Tab'
 import Row from 'react-bootstrap/Row'
 import Nav from 'react-bootstrap/Nav'
 import { Form } from 'react-bootstrap'
 import Button from 'react-bootstrap/Button'
+import { AuthContext } from '../contexts/AuthContext'
+import axios from '../lib/axios'
 
 const settings = () => {
+    const {user} = useContext(AuthContext)
+    const[profile, setProfile] = useState()
+    useEffect(()=>{
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/user/info`)
+        .then((res)=>{
+            setProfile(res.data)
+        })
+        .catch(err=>console.log(err))
+    },[])
     return (
         <>
             <Navnew />
-            <div className="container-fluid">
+            {profile &&
+                (<div className="container-fluid">
                 <Tab.Container defaultActiveKey="profile_information">
                     <div className="bg-white rounded py-4 my-4">
                         <Row>
@@ -76,7 +88,7 @@ const settings = () => {
                                                     </Form.Group>
                                                 </div>
                                                 <div className='col-span-4 ml-auto'>
-                                                    <img src="/user.jpg" alt="" className="rounded w-32 h-32" />
+                                                    <img src="/profile.jpg" alt="" className="rounded w-32 h-32" />
                                                 </div>
                                             </div>
 
@@ -88,6 +100,7 @@ const settings = () => {
                                                 <Form.Control
                                                     type="text"
                                                     name='name'
+                                                    value={profile.name}
                                                     placeholder="Enter Your Name"
 
                                                 />
@@ -132,10 +145,8 @@ const settings = () => {
                                                     Gender
                                                 </Form.Label>
                                                 <select
-
                                                     className="form-control"
                                                     name='gender'
-
                                                 >
                                                     <option value="male">Male</option>
                                                     <option value="female">Female</option>
@@ -631,7 +642,8 @@ const settings = () => {
                     </div>
                 </Tab.Container>
 
-            </div>
+            </div>)
+            }
 
         </>
     )

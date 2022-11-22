@@ -10,6 +10,7 @@ import axios from '../../lib/axios';
 import Link from 'next/link';
 import HomepageFollow from '../../components/HomePage/HomepageFollow';
 import Post from '../../components/Post/Post';
+import FollowButton from '../../components/Button/FollowButton';
 
 const profile = ({ people, posts }) => {
     return (
@@ -255,14 +256,9 @@ const profile = ({ people, posts }) => {
                                         </div>
 
                                         {/* HomepageFollow  */}
-                                        <div className='pr-4 bg-white m-2 rounded p-4'>
-                                            <h6>
-                                                <strong>Follow Now </strong>
-                                            </h6>
-                                            <div className='mt-6'>
-                                                <HomepageFollow />
-                                            </div>
-                                        </div>
+                                        
+                                        <HomepageFollow />
+                                        
 
                                     </div>
                                 </div>
@@ -292,22 +288,6 @@ const profile = ({ people, posts }) => {
                                     </div>
                                     <div className='col-span-12  md:col-span-8 bg-white rounded p-3 ml-1'>
 
-                                        <div>
-                                            <h4>About Me!</h4>
-                                            <p className='text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id eum iste magni molestiae. Itaque iusto quasi ipsum quam odit numquam veritatis, consequatur soluta rerum assumenda nostrum, laboriosam vel. Eum id neque quis, adipisci consequatur nobis doloribus dolorum libero corporis. Pariatur odit rerum repudiandae magnam. Repudiandae nam, quae in soluta ad laborum neque delectus minima reprehenderit sit cum quo distinctio obcaecati explicabo, hic dolor quas exercitationem fugiat cupiditate? Alias iure mollitia aliquam minima delectus voluptates neque dolores commodi repudiandae, quasi, laboriosam vel suscipit voluptatibus repellendus debitis earum ut officiis dolorum sint corrupti? Unde labore, perspiciatis recusandae esse consequuntur exercitationem illum blanditiis!</p>
-                                        </div>
-                                        <div>
-                                            <h4>About Me!</h4>
-                                            <p className='text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id eum iste magni molestiae. Itaque iusto quasi ipsum quam odit numquam veritatis, consequatur soluta rerum assumenda nostrum, laboriosam vel. Eum id neque quis, adipisci consequatur nobis doloribus dolorum libero corporis. Pariatur odit rerum repudiandae magnam. Repudiandae nam, quae in soluta ad laborum neque delectus minima reprehenderit sit cum quo distinctio obcaecati explicabo, hic dolor quas exercitationem fugiat cupiditate? Alias iure mollitia aliquam minima delectus voluptates neque dolores commodi repudiandae, quasi, laboriosam vel suscipit voluptatibus repellendus debitis earum ut officiis dolorum sint corrupti? Unde labore, perspiciatis recusandae esse consequuntur exercitationem illum blanditiis!</p>
-                                        </div>
-                                        <div>
-                                            <h4>About Me!</h4>
-                                            <p className='text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id eum iste magni molestiae. Itaque iusto quasi ipsum quam odit numquam veritatis, consequatur soluta rerum assumenda nostrum, laboriosam vel. Eum id neque quis, adipisci consequatur nobis doloribus dolorum libero corporis. Pariatur odit rerum repudiandae magnam. Repudiandae nam, quae in soluta ad laborum neque delectus minima reprehenderit sit cum quo distinctio obcaecati explicabo, hic dolor quas exercitationem fugiat cupiditate? Alias iure mollitia aliquam minima delectus voluptates neque dolores commodi repudiandae, quasi, laboriosam vel suscipit voluptatibus repellendus debitis earum ut officiis dolorum sint corrupti? Unde labore, perspiciatis recusandae esse consequuntur exercitationem illum blanditiis!</p>
-                                        </div>
-                                        <div>
-                                            <h4>About Me!</h4>
-                                            <p className='text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id eum iste magni molestiae. Itaque iusto quasi ipsum quam odit numquam veritatis, consequatur soluta rerum assumenda nostrum, laboriosam vel. Eum id neque quis, adipisci consequatur nobis doloribus dolorum libero corporis. Pariatur odit rerum repudiandae magnam. Repudiandae nam, quae in soluta ad laborum neque delectus minima reprehenderit sit cum quo distinctio obcaecati explicabo, hic dolor quas exercitationem fugiat cupiditate? Alias iure mollitia aliquam minima delectus voluptates neque dolores commodi repudiandae, quasi, laboriosam vel suscipit voluptatibus repellendus debitis earum ut officiis dolorum sint corrupti? Unde labore, perspiciatis recusandae esse consequuntur exercitationem illum blanditiis!</p>
-                                        </div>
                                         <div>
                                             <h4>About Me!</h4>
                                             <p className='text-justify'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id eum iste magni molestiae. Itaque iusto quasi ipsum quam odit numquam veritatis, consequatur soluta rerum assumenda nostrum, laboriosam vel. Eum id neque quis, adipisci consequatur nobis doloribus dolorum libero corporis. Pariatur odit rerum repudiandae magnam. Repudiandae nam, quae in soluta ad laborum neque delectus minima reprehenderit sit cum quo distinctio obcaecati explicabo, hic dolor quas exercitationem fugiat cupiditate? Alias iure mollitia aliquam minima delectus voluptates neque dolores commodi repudiandae, quasi, laboriosam vel suscipit voluptatibus repellendus debitis earum ut officiis dolorum sint corrupti? Unde labore, perspiciatis recusandae esse consequuntur exercitationem illum blanditiis!</p>
@@ -437,7 +417,7 @@ export async function getServerSideProps({ query }) {
 
     const res = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/people/${query.id}`)
     const people = await res.data
-    const postres = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/posts`)
+    const postres = await axios.get(`${process.env.NEXT_PUBLIC_API_URL}/people/post/${query.id}`)
     const posts = postres.data.data
     console.log(people);
 

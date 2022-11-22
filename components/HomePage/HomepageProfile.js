@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 
-import { FaHeart } from 'react-icons/fa'
+import { FaCheck, FaHeart, FaPlus, FaPlusCircle, FaUser, FaUsers } from 'react-icons/fa'
 import { AuthContext } from '../../contexts/AuthContext'
 import Skeleton from 'react-loading-skeleton'
 
@@ -41,31 +41,28 @@ const HomepageProfile = () => {
                                 <h6><strong>22323</strong></h6>
                                 <span>Followers</span>
                             </div>
-                            {/* <div className='text-center border-r-2 border-indigo-600 pr-6'>
-                                <h6><strong>22323</strong></h6>
-                                <span>Likes</span>
-                            </div>
-                            <div className='text-center'>
-                                <h6><strong>22323</strong></h6>
-                                <span>Likes</span>
-                            </div> */}
                         </div>
 
                         <div className='flex items-center justify-center py-4'>
-                            <FaHeart />
-                            <h6> New Likes This Week</h6>
+                            <FaPlusCircle />
+                            <h6 className='m-0 p-0'> Follow This Week</h6>
                         </div>
 
                         <div className='text-center'>
-                            <div class="flex -space-x-1 overflow-hidden items-center justify-center">
-                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
-                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
-                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
-                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
-                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10' /></a>
+                            <div class="flex -space-x-1 py-1 overflow-hidden items-center justify-center">
+                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10 ring ring-emerald-600 ring-2' /></a>
+                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10 ring ring-emerald-600 ring-2' /></a>
+                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10 ring ring-emerald-600 ring-2' /></a>
+                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10 ring ring-emerald-600 ring-2' /></a>
+                                <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10 ring ring-emerald-600 ring-2' /></a>
                             </div>
 
-                            <button className='py-2 mt-4 px-4 bg-blue-500 text-white font-semibold rounded-lg shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>View Profile</button>
+                            <button className='p-2 mt-4 bg-emerald-800 text-white text-sm font-semibold rounded-sm shadow-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75'>
+                                <div className='flex items-center space-x-1'>
+                                    <FaUsers />
+                                    <span>View Profiles</span>
+                                </div>
+                            </button>
                         </div>
 
                     </div>

@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import { FaPlusCircle } from 'react-icons/fa'
+import FollowButton from '../components/Button/FollowButton'
+import Link from 'next/link';
 
 const singlePeople = ({ people }) => {
 
@@ -21,33 +23,29 @@ const singlePeople = ({ people }) => {
             {
                 people.map((person, index) => {
                     return (
-                        <div key={index} className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-3 bg-white rounded mb-1 shadow-xl">
-                            <div className="ml-2 flex items-center py-2">
+                        <div key={index} className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-3 bg-white rounded-sm mb-1 shadow-xl">
+                            <div className="m-2 flex items-center py-2 border-b-2">
                                 <img
                                     src="/profile.jpg"
                                     alt="profile photo"
-                                    className="rounded w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-28 lg:h-28"
+                                    className="rounded-md w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-24 lg:h-24"
                                 />
                                 <div className="ml-2">
-                                    <a href='#'>
-                                        <h6 className="capitalize text-sm m-0 sm:text-md md:text-xl">
-                                            <strong>{person.name}</strong>
+                                    <Link href={`/people/${person.id}`}>
+                                        <h6 className="capitalize text-slate-700 m-0 sm:text-sm md:text-lg">
+                                            {person.name}
                                         </h6>
-                                    </a>
+                                    </Link>
                                     <span className="text-muted">{person.occupation}</span>
                                 </div>
                             </div>
-                            <div className="flex items-center justify-evenly mb-1">
+                            
+                            <div className="flex items-center justify-between p-2">
                                 <h2 className="text-base m-0">
-                                    252
+                                    {person.followers_count}
                                     <span className="ml-1 text-xs text-muted">Followers</span>
                                 </h2>
-                                <Button className='' variant="outline-success ">
-                                    <div className='flex items-center space-x-1'>
-                                        <span><FaPlusCircle /></span>
-                                        <span>Follow</span>
-                                    </div>
-                                </Button>{' '}
+                                <FollowButton followerid={person.id} />
                             </div>
                         </div>
                     )

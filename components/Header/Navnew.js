@@ -1,29 +1,29 @@
 import Link from 'next/link'
 import _ from 'lodash'
 import { Fragment, useContext, useEffect, useRef, useState } from 'react'
-import { FaBell, FaEnvelopeOpen, FaHome, FaPoll, FaPowerOff, FaSearch, FaUserCircle } from 'react-icons/fa'
+import { FaBell, FaCheckCircle, FaEnvelopeOpen, FaHome, FaPlusCircle, FaPoll, FaPowerOff, FaSearch, FaUserCircle, FaUsers } from 'react-icons/fa'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { AuthContext } from '../../contexts/AuthContext'
 
 export default function Navnew() {
-    const{user} = useContext(AuthContext)
-    const[isLoading, setIsLoading] = useState(true);
-    const[profile, setProfile] = useState(null);
-    useEffect(()=>{
+    const { user } = useContext(AuthContext)
+    const [isLoading, setIsLoading] = useState(true);
+    const [profile, setProfile] = useState(null);
+    useEffect(() => {
         setProfile(user);
         setIsLoading(false);
     });
 
-    const logoutHandaller = ()=>{
+    const logoutHandaller = () => {
         localStorage.clear();
-        let url = window.location.origin+'/login'
-        window.location.assign(url);        
+        let url = window.location.origin + '/login'
+        window.location.assign(url);
     }
 
-    if(isLoading){
+    if (isLoading) {
         return <h2>Loading</h2>
-    }else{
+    } else {
         return (
             <div className="bg-emerald-700 py-2 px-2 sticky top-0 z-50">
                 <section className="mx-auto">
@@ -61,32 +61,32 @@ export default function Navnew() {
                             <ul className="flex items-center justify-content-between gap-1 sm:gap-10 md:gap-8 lg:gap-8 m-0">
                                 <li className="hidden md:block">
                                     <Link href="/" className="text-white">
-                                        <FaHome className="h-6 w-6 " />{' '}
+                                        <FaHome className="h-6 w-6 " />
                                     </Link>
                                 </li>
                                 <li>
                                     <Link href="/polls" className="text-lg text-white">
-                                        <FaPoll className="h-6 w-6" />{' '}
+                                        <FaPoll className="h-6 w-6" />
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/profile" className="text-lg text-white">
-                                        <FaUserCircle className="h-6 w-6" />{' '}
+                                    <Link href="/people" className="text-lg text-white">
+                                        <FaUsers className="h-6 w-6" />
                                     </Link>
                                 </li>
-                                
 
+                                {/* Notification */}
                                 <li>
                                     <Dropdown>
                                         <Dropdown.Toggle id="dropdown-basic">
-                                            <a
+                                            <Link
                                                 href="#"
                                                 className="text-white relative">
                                                 <FaBell className="h-6 w-6" />
                                                 <span className="absolute -top-4 -right-3 animate-pulse font-extrabold   bg-clip-text bg-gradient-to-r from-emerald-400 to-pink-600">
                                                     2
                                                 </span>
-                                            </a>
+                                            </Link>
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu className="p-2 w-72 overflow-auto h-96">
@@ -99,82 +99,75 @@ export default function Navnew() {
                                                 </span>
                                             </div>
                                             <Dropdown.Item href="#/action-1">
-                                                <Link href="/settings">
-                                                    <a className="flex items-center">
-                                                        <img
-                                                            src="/avatar.jpg"
-                                                            className="w-10 h-10 rounded-full"
-                                                            alt="najmul"
-                                                        />
-
-                                                        <div className="ml-2">
-                                                            <h6 className="m-0 capitalize">
-                                                                najmul hasan
-                                                            </h6>
-                                                            <p className="m-0 py-.5 text-muted">
-                                                                lorem ipsum
-                                                                dolor aset
-                                                            </p>
-                                                            <span className="capitalize">
-                                                                20 Minits ago
-                                                            </span>
-                                                        </div>
-                                                    </a>
+                                                <Link href="/settings" className='flex items-center'>
+                                                    <img src="/avatar.jpg" className="w-10 h-10 rounded-full" alt="username" />
+                                                    <div className="ml-2">
+                                                        <h6 className="m-0 capitalize text-sm">Test User Name </h6>
+                                                        <p className="m-0 py-.5 text-muted text-sm"> lorem ipsum dolor aset </p>
+                                                        <span className="capitalize text-sm"> 20 Minits ago </span>
+                                                    </div>
                                                 </Link>
                                             </Dropdown.Item>
-
-                                            <button className="bg-emerald-800 text-white block w-full rounded py-2 text-lg font-medium mt-2">
-                                                See All
-                                            </button>
+                                            <div className="flex items-center justify-between pt-0 p-2">
+                                                <Link href='#' className="font-bold m-0 text-sm">
+                                                    View All Notifications
+                                                </Link>
+                                            </div>
                                         </Dropdown.Menu>
                                     </Dropdown>
                                 </li>
+                                {/* Language */}
                                 <li className="text-white">
                                     <form className="w-8">
                                         <fieldset>
                                             <select className="border-none bg-inherit">
-                                                <option
+                                                <option selected
                                                     value="1"
                                                     className="bg-black text-white">
-                                                    En
+                                                    English
                                                 </option>
                                                 <option
                                                     value="2"
                                                     className="bg-black text-white">
-                                                    Bn
+                                                    বাংলা
                                                 </option>
                                             </select>
                                         </fieldset>
                                     </form>
                                 </li>
                                 {/* Profiel image */}
-                                <li>                                   
+                                <li>
                                     <Dropdown>
                                         <Dropdown.Toggle id="dropdown-basic">
                                             <img
                                                 // src='/profile.jpg'
                                                 // src={profile && _.isNull(profile.avatar) ? '/profile.jpg' : `${process.env.NEXT_PUBLIC_BACKEND_URL}/${profile.avatar}`}
-                                                src={profile && _.isNull(profile.avatar) ?  `${process.env.NEXT_PUBLIC_BACKEND_URL}/${profile.avatar}`:'/profile.jpg'}
+                                                src={profile && _.isNull(profile.avatar) ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${profile.avatar}` : '/profile.jpg'}
                                                 alt="avatar"
                                                 className="w-10 h-10 ring-1 ring-white rounded-full mr-1"
                                             />
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu>
-                                            <Dropdown.Item href="#/action-1">
+                                            <Dropdown.Item as="button" className='px-1'>
                                                 <Link href="/settings" className="flex items-center font-medium">
-
                                                     <FaUserCircle className="mr-2" />
                                                     Settings
+                                                </Link>
+                                            </Dropdown.Item>
+                                            <Dropdown.Item as="button" className='px-1'>
+                                                <Link href="/followers" className="flex items-center font-medium">
+                                                    <FaPlusCircle className="mr-2" />
+                                                    Followers
+                                                </Link>
+                                            </Dropdown.Item>
+                                            <Dropdown.Item as="button" className='px-1'>
+                                                <Link href="/following" className="flex items-center font-medium">
+                                                    <FaCheckCircle className="mr-2" />
+                                                    Following
+                                                </Link>
+                                            </Dropdown.Item>
 
-                                                </Link>
-                                            </Dropdown.Item>
-                                            <Dropdown.Item href="#/action-2">
-                                                <Link href="/people" className="flex items-center font-medium">
-                                                    <FaUserCircle className="mr-2" />
-                                                    People
-                                                </Link>
-                                            </Dropdown.Item>
                                             {/* Logout  */}
                                             <Dropdown.Item as="button" className='py-0 px-2' onClick={logoutHandaller} >
                                                 <div className='flex items-center' >
