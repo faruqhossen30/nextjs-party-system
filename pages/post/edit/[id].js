@@ -33,15 +33,21 @@ const EditPost = ({ post }) => {
               </div>
             </div>
             <div className='p-2'>
-                <textarea name="" rows="5" className='w-full p-2 border-8'>
-                  {post.body}
-                </textarea>
+              <textarea name="" rows="5" className='w-full p-2 border-2'>
+                {post.body}
+              </textarea>
               {post.photo &&
                 <img src={`${process.env.NEXT_PUBLIC_BACKEND_URL}/uploads/photos/post/${post.photo.name}`} alt="one" className='object-contain w-full ' />
               }
               {/* <img src="/profile.jpg" alt="" className='object-contain rounded w-full ' /> */}
             </div>
-            <div className='mt-4'>
+            <div className='pr-2 text-right'>
+              <button
+                className="bg-emerald-700 text-white font-bold px-3 py-1 rounded-md">
+                Update
+              </button>
+            </div>
+            <div className='mt-2'>
               <hr />
               <div className='flex justify-between px-3  py-1'>
                 <Like likes_count={post.likes_count} postid={post.id} />
