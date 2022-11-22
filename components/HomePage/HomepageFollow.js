@@ -1,7 +1,6 @@
 import axios from '../../lib/axios';
 import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
-import { FaPlusCircle } from 'react-icons/fa';
 import FollowButton from '../Button/FollowButton';
 
 const HomepageFollow = () => {
