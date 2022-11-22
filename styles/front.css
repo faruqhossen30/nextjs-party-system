@@ -31,8 +31,13 @@ a {
 button#dropdown-basic {
     background: transparent;
     border: none;
+    color: black;
+    font-weight: 700;
 }
-
+.dropdown-menu.show {
+    border: 2px solid #DDDEE0 !important;
+    border-radius: 10px;
+}
 .dropdown-menu.show {
     inset: inherit !important;
     transform: inherit !important;
