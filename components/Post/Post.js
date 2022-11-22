@@ -44,10 +44,10 @@ const Post = ({ posts }) => {
                                 <div className='flex justify-between px-3  py-1'>
                                     <Like likes_count={post.likes_count} postid={post.id} />
                                     <div>
-                                        <span className='flex items-center'>  <a href='#' className='mr-1'><FaRegCommentDots /> </a>comments | 1200</span>
+                                        <span className='flex items-center'>  <a href='#' className='mr-1'><FaRegCommentDots /> </a>Comments - <span className='text-gray-5000 text-xs'>No Comment</span></span>
                                     </div>
                                     <div>
-                                        <div className='flex items-center'> <a href='#' className='mr-1'> <FaShareAlt /></a> share | 1200</div>
+                                        <div className='flex items-center'> <a href='#' className='mr-1'> <FaShareAlt /></a> Share - 0</div>
                                     </div>
                                 </div>
                                 <hr />

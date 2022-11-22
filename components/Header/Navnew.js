@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import _ from 'lodash'
 import { Fragment, useContext, useEffect, useRef, useState } from 'react'
-import { FaBell, FaCheckCircle, FaEnvelopeOpen, FaHome, FaPlusCircle, FaPoll, FaPowerOff, FaSearch, FaUserCircle, FaUsers } from 'react-icons/fa'
+import { FaBell, FaCheckCircle, FaEnvelopeOpen, FaHome, FaIdCard, FaPlusCircle, FaPoll, FaPowerOff, FaSearch, FaUserCircle, FaUsers } from 'react-icons/fa'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { AuthContext } from '../../contexts/AuthContext'
@@ -142,13 +142,19 @@ export default function Navnew() {
                                             <img
                                                 // src='/profile.jpg'
                                                 // src={profile && _.isNull(profile.avatar) ? '/profile.jpg' : `${process.env.NEXT_PUBLIC_BACKEND_URL}/${profile.avatar}`}
-                                                src={profile && _.isNull(profile.avatar) ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${profile.avatar}` : '/profile.jpg'}
+                                                src={profile && profile.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${profile.avatar}` : '/profile.jpg'}
                                                 alt="avatar"
                                                 className="w-10 h-10 ring-1 ring-white rounded-full mr-1"
                                             />
                                         </Dropdown.Toggle>
 
                                         <Dropdown.Menu>
+                                            <Dropdown.Item as="button" className='px-1'>
+                                                <Link href="/profile" className="flex items-center font-medium">
+                                                    <FaIdCard className="mr-2" />
+                                                    My Profile
+                                                </Link>
+                                            </Dropdown.Item>
                                             <Dropdown.Item as="button" className='px-1'>
                                                 <Link href="/settings" className="flex items-center font-medium">
                                                     <FaUserCircle className="mr-2" />

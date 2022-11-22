@@ -24,10 +24,10 @@ const HomepageProfile = () => {
                     <div className='p-4 bg-white m-2 rounded'>
 
                         <div className='relative'>
-                            <img className="w-full h-20 object-cover rounded" src="https://images.pexels.com/photos/1274260/pexels-photo-1274260.jpeg?auto=compress&cs=tinysrgb&h=650&w=940" alt="Flower and sky" />
+                            <img className="w-full h-20 object-cover rounded" src="/cover.jpg" alt="Flower and sky" />
 
                             <div className='ml-4 absolute top-16 flex items-center'>
-                                <img src={profile.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/uploads/photos/profile/${profile.avatar}` : 'profile.jpg'} alt="" className='rounded w-24 h-24' />
+                                <img src={profile.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${profile.avatar}` : '/profile.jpg'} alt="" className='rounded w-24 h-24' />
 
                                 <div className='ml-2 pt-6'>
                                     <h6 className='capitalize text-lg leading-none'><strong>{profile.name}</strong></h6>
