@@ -2,6 +2,9 @@ import React from 'react'
 import Navnew from '../../components/Header/Navnew'
 import Select from 'react-select'
 import Link from 'next/link'
+import { FaSearch } from 'react-icons/fa'
+
+import FollowButton from '../../components/Button/FollowButton'
 
 const people = () => {
     const options = [
@@ -40,156 +43,66 @@ const people = () => {
                 </div>
 
                 <div className='col-span-8 bg-white rounded-md p-2 m-2'>
-
+                    <div className="rounded-full p-3 ring-2 ring-emerald-600  h-9 bg-white font-sans text-black flex items-center justify-end ">
+                        <input
+                            type="text"
+                            className="ml-1 h-7 w-full  focus:outline-0"
+                            placeholder="Search..."></input>
+                        <button className="px-0 md:px-4">
+                            <FaSearch className="h-4 pr-1" />
+                        </button>
+                    </div>
                     <div className='grid grid-cols-12'>
-                        <div className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-4 bg-white rounded-sm mb-1 shadow-xl m-2">
-                            <div className="m-2 flex items-center py-2 border-b-2">
-                                <img
-                                    src="/profile.jpg"
-                                    alt="profile photo"
-                                    className="rounded-md w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-24 lg:h-24"
-                                />
-                                <div className="ml-2">
-                                    <Link href=''>
-                                        <h6 className="capitalize text-slate-700 m-0 sm:text-sm md:text-lg">
-                                            name
-                                        </h6>
+                        <div className="col-span-12  lg:col-span-6 bg-white rounded-md mb-1 shadow-xl m-2">
+                            <div className='sm:flex items-center justify-between p-4' >
+                                <div className='flex items-center'>
+                                    {/* <img src={user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${user.avatar}` : '/profile.jpg'} alt="" className='rounded-full w-12 h-12' /> */}
+                                    <img src="/profile.jpg" className='rounded-full w-20 h-20' alt="" />
+                                    <Link href="#" className='m-0'>
+                                        <h6 className='ml-2 capitalize text-base leading-none mb-0'>Md Najmul Hasan</h6>
+                                        <span className='ml-2 capitalize text-xs mb-0'>Md Najmul Hasan</span>
                                     </Link>
-                                    <span className="text-muted">name</span>
                                 </div>
-                            </div>
-
-                            <div className="flex items-center justify-between p-2">
-                                <h2 className="text-base m-0">
-                                    12
-                                    <span className="ml-1 text-xs text-muted">Followers</span>
-                                </h2>
-                                {/* <FollowButton followerid={person.id} /> */}
+                                <FollowButton />
                             </div>
                         </div>
-                        <div className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-4 bg-white rounded-sm mb-1 shadow-xl m-2">
-                            <div className="m-2 flex items-center py-2 border-b-2">
-                                <img
-                                    src="/profile.jpg"
-                                    alt="profile photo"
-                                    className="rounded-md w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-24 lg:h-24"
-                                />
-                                <div className="ml-2">
-                                    <Link href=''>
-                                        <h6 className="capitalize text-slate-700 m-0 sm:text-sm md:text-lg">
-                                            name
-                                        </h6>
+                        <div className="col-span-12  lg:col-span-6 bg-white rounded-md mb-1 shadow-xl m-2">
+                            <div className='sm:flex items-center justify-between p-4' >
+                                <div className='flex items-center'>
+                                    {/* <img src={user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${user.avatar}` : '/profile.jpg'} alt="" className='rounded-full w-12 h-12' /> */}
+                                    <img src="/profile.jpg" className='rounded-full w-20 h-20' alt="" />
+                                    <Link href="#" className='m-0'>
+                                        <h6 className='ml-2 capitalize text-base leading-none mb-0'>Md Najmul Hasan</h6>
+                                        <span className='ml-2 capitalize text-xs mb-0'>Md Najmul Hasan</span>
                                     </Link>
-                                    <span className="text-muted">name</span>
                                 </div>
-                            </div>
-
-                            <div className="flex items-center justify-between p-2">
-                                <h2 className="text-base m-0">
-                                    12
-                                    <span className="ml-1 text-xs text-muted">Followers</span>
-                                </h2>
-                                {/* <FollowButton followerid={person.id} /> */}
+                                <FollowButton />
                             </div>
                         </div>
-                        <div className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-4 bg-white rounded-sm mb-1 shadow-xl m-2">
-                            <div className="m-2 flex items-center py-2 border-b-2">
-                                <img
-                                    src="/profile.jpg"
-                                    alt="profile photo"
-                                    className="rounded-md w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-24 lg:h-24"
-                                />
-                                <div className="ml-2">
-                                    <Link href=''>
-                                        <h6 className="capitalize text-slate-700 m-0 sm:text-sm md:text-lg">
-                                            name
-                                        </h6>
+                        <div className="col-span-12  lg:col-span-6 bg-white rounded-md mb-1 shadow-xl m-2">
+                            <div className='sm:flex items-center justify-between p-4' >
+                                <div className='flex items-center'>
+                                    {/* <img src={user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${user.avatar}` : '/profile.jpg'} alt="" className='rounded-full w-12 h-12' /> */}
+                                    <img src="/profile.jpg" className='rounded-full w-20 h-20' alt="" />
+                                    <Link href="#" className='m-0'>
+                                        <h6 className='ml-2 capitalize text-base leading-none mb-0'>Md Najmul Hasan</h6>
+                                        <span className='ml-2 capitalize text-xs mb-0'>Md Najmul Hasan</span>
                                     </Link>
-                                    <span className="text-muted">name</span>
                                 </div>
-                            </div>
-
-                            <div className="flex items-center justify-between p-2">
-                                <h2 className="text-base m-0">
-                                    12
-                                    <span className="ml-1 text-xs text-muted">Followers</span>
-                                </h2>
-                                {/* <FollowButton followerid={person.id} /> */}
+                                <FollowButton />
                             </div>
                         </div>
-                        <div className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-4 bg-white rounded-sm mb-1 shadow-xl m-2">
-                            <div className="m-2 flex items-center py-2 border-b-2">
-                                <img
-                                    src="/profile.jpg"
-                                    alt="profile photo"
-                                    className="rounded-md w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-24 lg:h-24"
-                                />
-                                <div className="ml-2">
-                                    <Link href=''>
-                                        <h6 className="capitalize text-slate-700 m-0 sm:text-sm md:text-lg">
-                                            name
-                                        </h6>
+                        <div className="col-span-12  lg:col-span-6 bg-white rounded-md mb-1 shadow-xl m-2">
+                            <div className='sm:flex items-center justify-between p-4' >
+                                <div className='flex items-center'>
+                                    {/* <img src={user.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${user.avatar}` : '/profile.jpg'} alt="" className='rounded-full w-12 h-12' /> */}
+                                    <img src="/profile.jpg" className='rounded-full w-20 h-20' alt="" />
+                                    <Link href="#" className='m-0'>
+                                        <h6 className='ml-2 capitalize text-base leading-none mb-0'>Md Najmul Hasan</h6>
+                                        <span className='ml-2 capitalize text-xs mb-0'>Md Najmul Hasan</span>
                                     </Link>
-                                    <span className="text-muted">name</span>
                                 </div>
-                            </div>
-
-                            <div className="flex items-center justify-between p-2">
-                                <h2 className="text-base m-0">
-                                    12
-                                    <span className="ml-1 text-xs text-muted">Followers</span>
-                                </h2>
-                                {/* <FollowButton followerid={person.id} /> */}
-                            </div>
-                        </div>
-                        <div className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-4 bg-white rounded-sm mb-1 shadow-xl m-2">
-                            <div className="m-2 flex items-center py-2 border-b-2">
-                                <img
-                                    src="/profile.jpg"
-                                    alt="profile photo"
-                                    className="rounded-md w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-24 lg:h-24"
-                                />
-                                <div className="ml-2">
-                                    <Link href=''>
-                                        <h6 className="capitalize text-slate-700 m-0 sm:text-sm md:text-lg">
-                                            name
-                                        </h6>
-                                    </Link>
-                                    <span className="text-muted">name</span>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center justify-between p-2">
-                                <h2 className="text-base m-0">
-                                    12
-                                    <span className="ml-1 text-xs text-muted">Followers</span>
-                                </h2>
-                                {/* <FollowButton followerid={person.id} /> */}
-                            </div>
-                        </div>
-                        <div className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-4 bg-white rounded-sm mb-1 shadow-xl m-2">
-                            <div className="m-2 flex items-center py-2 border-b-2">
-                                <img
-                                    src="/profile.jpg"
-                                    alt="profile photo"
-                                    className="rounded-md w-12 h-12 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-24 lg:h-24"
-                                />
-                                <div className="ml-2">
-                                    <Link href=''>
-                                        <h6 className="capitalize text-slate-700 m-0 sm:text-sm md:text-lg">
-                                            name
-                                        </h6>
-                                    </Link>
-                                    <span className="text-muted">name</span>
-                                </div>
-                            </div>
-
-                            <div className="flex items-center justify-between p-2">
-                                <h2 className="text-base m-0">
-                                    12
-                                    <span className="ml-1 text-xs text-muted">Followers</span>
-                                </h2>
-                                {/* <FollowButton followerid={person.id} /> */}
+                                <FollowButton />
                             </div>
                         </div>
                     </div>
