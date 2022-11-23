@@ -3,12 +3,23 @@ import SinglePeople from '../components/SinglePeople'
 import Navnew from '../components/Header/Navnew'
 import Breadcum from '../components/Header/Breadcum'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import React from 'react'
+import React, { useState } from 'react'
 import axios from '../lib/axios'
 import { FaSearch } from 'react-icons/fa'
 
 const people = ({ people }) => {
     // console.log(people);
+    const[search, setSearch]=useState()
+    const[users, setUsers]= useState(people)
+
+    const changeHandaller = (e)=>{
+        setSearch(e.target.value)
+        axios.get(`${process.env.NEXT_PUBLIC_API_URL}/people/search/${search}`)
+        .then((res)=>{
+            setUsers(res.data.data)
+        })
+        .catch(err=>console.log(err))
+    }
     return (
         <div>
             <Navnew />
@@ -21,7 +32,8 @@ const people = ({ people }) => {
                     <div className="rounded-full p-3 ring-2 ring-emerald-600  h-9 bg-white font-sans text-black flex items-center justify-end ">
                         <input
                             type="text"
-                            className="h-7 w-full  rounded-full focus:outline-0"
+                            onChange={changeHandaller}
+                            className="ml-1 h-7 w-full  focus:outline-0"
                             placeholder="Search..."></input>
                         <button className="px-0 md:px-4">
                             <FaSearch className="h-4 pr-1" />
@@ -31,7 +43,7 @@ const people = ({ people }) => {
             </div>
 
             <div className="grid grid-cols-12 p-2 gap-3">
-                <SinglePeople people={people} />
+                {users && <SinglePeople people={users} /> }
             </div>
         </div>
     )

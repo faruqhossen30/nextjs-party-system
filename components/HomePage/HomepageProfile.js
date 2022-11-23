@@ -49,7 +49,7 @@ const HomepageProfile = () => {
                         </div>
 
                         <div className='text-center'>
-                            <div class="flex -space-x-1 py-1 overflow-hidden items-center justify-center">
+                            <div className="flex -space-x-1 py-1 overflow-hidden items-center justify-center">
                                 <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10 ring ring-emerald-600 ring-2' /></a>
                                 <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10 ring ring-emerald-600 ring-2' /></a>
                                 <a href="" title='name'> <img src="profile.jpg" alt="" className='rounded-full w-10 h-10 ring ring-emerald-600 ring-2' /></a>

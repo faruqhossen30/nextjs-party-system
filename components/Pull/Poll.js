@@ -47,10 +47,10 @@ const Poll = ({ user }) => {
                     return (
                         <div className="bg-white rounded p-4 pb-3 mb-2" key={index}>
                             <h6 className='flex space-x-2'>
-                                <FaPoll />
+                                <FaPoll size={25} />
                                 <span> {poll.title}</span>
                             </h6>
-                            <form onSubmit={() => pollAttendanceSubmitHandaller(poll.id)}>
+                            <form onSubmit={() => pollAttendanceSubmitHandaller(poll.id)} className="ml-5">
                                 <input type="hidden" value={poll.id} />
                                 {poll.options.map((option, index) => {
                                     return (

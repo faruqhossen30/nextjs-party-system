@@ -41,7 +41,7 @@ const profile = () => {
 
                             <div className="relative">
                                 <img
-                                    class="w-full h-48 object-cover rounded"
+                                    className="w-full h-48 object-cover rounded"
                                     src="/cover.jpg"
                                     alt="Flower and sky"
                                 />

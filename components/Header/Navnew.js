@@ -43,7 +43,7 @@ export default function Navnew() {
                                     <div className="rounded-full p-3 ring ring-gray-400 h-9 bg-white font-sans text-black flex items-center justify-end w-full">
                                         <input
                                             type="text"
-                                            className="h-7 w-full rounded-full focus:outline-0"
+                                            className="h-7 w-full focus:outline-0"
                                             placeholder="Search..."></input>
                                         <button className="px-0 md:px-4">
                                             <FaSearch className="h-4 pr-1" />{' '}
@@ -98,7 +98,7 @@ export default function Navnew() {
                                                     ...
                                                 </span>
                                             </div>
-                                            <Dropdown.Item href="#/action-1">
+                                            <Dropdown.Item as="button">
                                                 <Link href="/settings" className='flex items-center'>
                                                     <img src="/avatar.jpg" className="w-10 h-10 rounded-full" alt="username" />
                                                     <div className="ml-2">
@@ -120,8 +120,8 @@ export default function Navnew() {
                                 <li className="text-white">
                                     <form className="w-8">
                                         <fieldset>
-                                            <select className="border-none bg-inherit">
-                                                <option selected
+                                            <select className="border-none bg-inherit" name='lan'>
+                                                <option
                                                     value="1"
                                                     className="bg-black text-white">
                                                     English
@@ -156,7 +156,7 @@ export default function Navnew() {
                                                 </Link>
                                             </Dropdown.Item>
                                             <Dropdown.Item as="button" className='px-1'>
-                                                <Link href="/settings" className="flex items-center font-medium">
+                                                <Link href="/profile/photo" className="flex items-center font-medium">
                                                     <FaUserCircle className="mr-2" />
                                                     Settings
                                                 </Link>
