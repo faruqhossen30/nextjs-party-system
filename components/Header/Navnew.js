@@ -5,6 +5,7 @@ import { FaBell, FaCheckCircle, FaEnvelopeOpen, FaHome, FaIdCard, FaPlusCircle, 
 import 'bootstrap/dist/css/bootstrap.min.css'
 import Dropdown from 'react-bootstrap/Dropdown'
 import { AuthContext } from '../../contexts/AuthContext'
+import FollowButton from '../Button/FollowButton'
 
 export default function Navnew() {
     const { user } = useContext(AuthContext)
@@ -32,14 +33,13 @@ export default function Navnew() {
                             {/* Search start */}
                             <div className="flex items-center flex-grow">
                                 <Link href="/" className="w-10 mr-4">
-
                                     <img
                                         src="/logo.jpg"
                                         alt=""
                                         className="h-10 w-10 object-fill"
                                     />
                                 </Link>
-                                <div className="hidden md:block w-full">
+                                <div className="hidden md:block w-full relative">
                                     <div className="rounded-full p-3 ring ring-gray-400 h-9 bg-white font-sans text-black flex items-center justify-end w-full">
                                         <input
                                             type="text"
@@ -48,6 +48,98 @@ export default function Navnew() {
                                         <button className="px-0 md:px-4">
                                             <FaSearch className="h-4 pr-1" />{' '}
                                         </button>
+                                    </div>
+                                    <div className='absolute bg-white shadow-xl mt-2 p-3 rounded-lg w-full h-72 overflow-y-scroll'>
+                                        <div className='flex items-center justify-between mb-2'>
+                                            <div className='flex items-center'>
+                                                <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
+                                                <Link href="#" className=''>
+                                                    <h6 className='ml-4 mb-0 capitalize text-base text-gray-500 leading-none'>Md Najmul Hasan</h6>
+                                                    <span className='ml-4 capitalize text-xs text-gray-400 mb-0'>Md Najmul Hasan</span>
+                                                </Link>
+                                            </div>
+                                            <FollowButton />
+                                        </div>
+                                        <div className='flex items-center justify-between mb-2'>
+                                            <div className='flex items-center'>
+                                                <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
+                                                <Link href="#" className=''>
+                                                    <h6 className='ml-4 mb-0 capitalize text-base text-gray-500 leading-none'>Md Najmul Hasan</h6>
+                                                    <span className='ml-4 capitalize text-xs text-gray-400 mb-0'>Md Najmul Hasan</span>
+                                                </Link>
+                                            </div>
+                                            <FollowButton />
+                                        </div>
+                                        <div className='flex items-center justify-between mb-2'>
+                                            <div className='flex items-center'>
+                                                <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
+                                                <Link href="#" className=''>
+                                                    <h6 className='ml-4 mb-0 capitalize text-base text-gray-500 leading-none'>Md Najmul Hasan</h6>
+                                                    <span className='ml-4 capitalize text-xs text-gray-400 mb-0'>Md Najmul Hasan</span>
+                                                </Link>
+                                            </div>
+                                            <FollowButton />
+                                        </div>
+                                        <div className='flex items-center justify-between mb-2'>
+                                            <div className='flex items-center'>
+                                                <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
+                                                <Link href="#" className=''>
+                                                    <h6 className='ml-4 mb-0 capitalize text-base text-gray-500 leading-none'>Md Najmul Hasan</h6>
+                                                    <span className='ml-4 capitalize text-xs text-gray-400 mb-0'>Md Najmul Hasan</span>
+                                                </Link>
+                                            </div>
+                                            <FollowButton />
+                                        </div>
+                                        <div className='flex items-center justify-between mb-2'>
+                                            <div className='flex items-center'>
+                                                <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
+                                                <Link href="#" className=''>
+                                                    <h6 className='ml-4 mb-0 capitalize text-base text-gray-500 leading-none'>Md Najmul Hasan</h6>
+                                                    <span className='ml-4 capitalize text-xs text-gray-400 mb-0'>Md Najmul Hasan</span>
+                                                </Link>
+                                            </div>
+                                            <FollowButton />
+                                        </div>
+                                        <div className='flex items-center justify-between mb-2'>
+                                            <div className='flex items-center'>
+                                                <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
+                                                <Link href="#" className=''>
+                                                    <h6 className='ml-4 mb-0 capitalize text-base text-gray-500 leading-none'>Md Najmul Hasan</h6>
+                                                    <span className='ml-4 capitalize text-xs text-gray-400 mb-0'>Md Najmul Hasan</span>
+                                                </Link>
+                                            </div>
+                                            <FollowButton />
+                                        </div>
+                                        <div className='flex items-center justify-between mb-2'>
+                                            <div className='flex items-center'>
+                                                <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
+                                                <Link href="#" className=''>
+                                                    <h6 className='ml-4 mb-0 capitalize text-base text-gray-500 leading-none'>Md Najmul Hasan</h6>
+                                                    <span className='ml-4 capitalize text-xs text-gray-400 mb-0'>Md Najmul Hasan</span>
+                                                </Link>
+                                            </div>
+                                            <FollowButton />
+                                        </div>
+                                        <div className='flex items-center justify-between mb-2'>
+                                            <div className='flex items-center'>
+                                                <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
+                                                <Link href="#" className=''>
+                                                    <h6 className='ml-4 mb-0 capitalize text-base text-gray-500 leading-none'>Md Najmul Hasan</h6>
+                                                    <span className='ml-4 capitalize text-xs text-gray-400 mb-0'>Md Najmul Hasan</span>
+                                                </Link>
+                                            </div>
+                                            <FollowButton />
+                                        </div>
+                                        <div className='flex items-center justify-between mb-2'>
+                                            <div className='flex items-center'>
+                                                <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
+                                                <Link href="#" className=''>
+                                                    <h6 className='ml-4 mb-0 capitalize text-base text-gray-500 leading-none'>Md Najmul Hasan</h6>
+                                                    <span className='ml-4 capitalize text-xs text-gray-400 mb-0'>Md Najmul Hasan</span>
+                                                </Link>
+                                            </div>
+                                            <FollowButton />
+                                        </div>
                                     </div>
                                 </div>
 
