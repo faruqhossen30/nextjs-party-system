@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import cogoToast from 'cogo-toast';
 import React, { useState } from 'react'
 import moment from 'moment'
 import Like from './Like'
@@ -15,6 +16,7 @@ const Update = ({ post }) => {
         axios.post(`${process.env.NEXT_PUBLIC_API_URL}/user/post/update/${post.id}`, formData)
             .then(() => {
                 console.log('successfully update');
+                cogoToast.success('Post update successfully !',  { position: 'top-right' });
             })
             .catch(err => console.log(err))
     }

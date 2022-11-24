@@ -49,7 +49,7 @@ export default function Navnew() {
                                             <FaSearch className="h-4 pr-1" />{' '}
                                         </button>
                                     </div>
-                                    <div className='absolute bg-white shadow-xl mt-2 p-3 rounded-lg w-full h-72 overflow-y-scroll'>
+                                    {/* <div className='absolute bg-white shadow-xl mt-2 p-3 rounded-lg w-full h-72 overflow-y-scroll'>
                                         <div className='flex items-center justify-between mb-2'>
                                             <div className='flex items-center'>
                                                 <img src='/profile.jpg' alt="" className='rounded-full w-12 h-12' />
@@ -140,11 +140,11 @@ export default function Navnew() {
                                             </div>
                                             <FollowButton />
                                         </div>
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 <button className="px-4 md:hidden">
-                                    <FaSearch className="h-4 pr-1 text-white" />{' '}
+                                    <FaSearch className="h-4 pr-1 text-white" />
                                 </button>
                             </div>
                             {/* Search End */}

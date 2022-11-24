@@ -1,9 +1,12 @@
 
 import { createRef, useState } from 'react';
+import cogoToast from 'cogo-toast';
 import { FaImage, FaFileVideo, FaList, FaCircle, FaWindowClose, FaRegWindowClose } from 'react-icons/fa'
 import axios from '../../lib/axios';
+import { useRouter } from 'next/router';
 
 const HomepageCreatepost = () => {
+    const router = useRouter()
     // This is working single photo
     const textarea = createRef();
     const [photo, setPhoto] = useState();
@@ -29,7 +32,9 @@ const HomepageCreatepost = () => {
             .post(`${process.env.NEXT_PUBLIC_API_URL}/user/post/store`, formData)
             .then(response => {
                 console.log(response);
-                window.location.reload();
+                cogoToast.success('Post create successfully !',{ position: 'top-right' });
+                // window.location.reload();
+                router.reload()
             })
 
     }

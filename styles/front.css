@@ -79,3 +79,8 @@ button#dropdown-basic {
 nav.bradcrumb-space {
     padding: 20px 0px 0px 15px;
 }
+
+/* Sweet alert2 */
+.swal2-popup {
+    font-size: .6rem !important;
+  }

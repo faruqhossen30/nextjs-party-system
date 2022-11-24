@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import moment from 'moment';
 import { FaFileVideo, FaThumbsUp, FaShareAlt, FaRegCommentDots } from 'react-icons/fa'
 import Like from '../Post/Like';
+import GearDropdown from './GearDropdown';
 
 
 const Post = ({ posts }) => {
@@ -27,7 +28,8 @@ const Post = ({ posts }) => {
 
                                     </div>
                                 </div>
-                                
+                                {/* Gear Dropdown Componetnt */}
+                                <GearDropdown postUserId={post.user.id} postId={post.id} />
                             </div>
                             <div>
                                 <p className='py-2 text-justify text-base p-3'>{post.body}</p>

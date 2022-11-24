@@ -1,11 +1,44 @@
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import { useContext } from 'react'
 import { Dropdown } from 'react-bootstrap'
 import { FaRegEdit, FaUserCircle, FaShareAlt, FaRegCommentDots, FaTrash, FaRegWindowClose, FaRegTrashAlt, FaInfoCircle } from 'react-icons/fa'
-import {AuthContext} from '../../contexts/AuthContext'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
-const GearDropdown = ({postUserId, postId}) => {
+import { AuthContext } from '../../contexts/AuthContext'
+import axios from '../../lib/axios'
+
+const GearDropdown = ({ postUserId, postId }) => {
     const { user } = useContext(AuthContext)
+    const router = useRouter()
+    const MySwal = withReactContent(Swal)
+
+    const deleteHandaller = () => {
+        MySwal.fire({
+            title: 'Are you delete post?',
+            text: "Your post will be remove forever !",
+            icon: 'warning',
+            width: '25em',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!',
+            customClass:'swal2-popup'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                axios.post(`${process.env.NEXT_PUBLIC_API_URL}/user/post/destroy/${postId}`)
+                    .then((res) => {
+                        router.reload()
+                    })
+                    .catch(err => console.log(err))
+            }
+        })
+    }
+
+
+
+
     return (
         <div>
             <Dropdown>
@@ -30,11 +63,11 @@ const GearDropdown = ({postUserId, postId}) => {
                         </Dropdown.Item>
                     }
                     {user.id && user.id == postUserId &&
-                        <Dropdown.Item as="button" className='py-0 px-2' >
-                            <Link href="#" className="flex items-center text-sm">
+                        <Dropdown.Item as="button" className='py-0 px-2' onClick={deleteHandaller}  >
+                            <div className="flex items-center text-sm">
                                 <FaRegTrashAlt className="mr-2" />
-                                Remove
-                            </Link>
+                                Delete
+                            </div>
                         </Dropdown.Item>
                     }
 
