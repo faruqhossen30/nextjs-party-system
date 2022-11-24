@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import moment from 'moment';
-import { FaRegEdit, FaUserCircle, FaShareAlt, FaRegCommentDots, FaTrash, FaRegWindowClose } from 'react-icons/fa'
+import { FaRegEdit, FaUserCircle, FaShareAlt, FaRegCommentDots, FaTrash, FaRegWindowClose, FaRegTrashAlt, FaInfoCircle } from 'react-icons/fa'
 import axios from '../../lib/axios';
 import Like from '../Post/Like';
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -8,7 +8,10 @@ import Dropdown from 'react-bootstrap/Dropdown'
 import PostSkeleton from '../Skeleton/PostSkeleton';
 import Link from 'next/link';
 
+import GearDropdown from '../Post/GearDropdown';
+
 const HomepageSinglefeed = () => {
+
 
     const [posts, setPosts] = useState([]);
     const [isLoading, setIsLoading] = useState(true)
@@ -50,35 +53,8 @@ const HomepageSinglefeed = () => {
 
                                     </div>
                                 </div>
-                                <div>
-                                    <Dropdown>
-                                        <Dropdown.Toggle id="dropdown-basic">
-                                            ...
-                                        </Dropdown.Toggle>
-
-                                        <Dropdown.Menu className='border-0'>
-                                            <Dropdown.Item>
-                                                <Link href={`/post/edit/${post.id}`} className="flex items-center font-medium">
-                                                    <FaRegEdit className="mr-2" />
-                                                    Edit
-                                                </Link>
-                                            </Dropdown.Item>
-                                            <Dropdown.Item href="#">
-                                                <Link href="#" className="flex items-center font-medium">
-                                                    <FaUserCircle className="mr-2" />
-                                                    Hide
-                                                </Link>
-                                            </Dropdown.Item>
-                                            <Dropdown.Item as="button" className='py-0 px-2' >
-                                                <Link href="#" className="flex items-center font-medium">
-                                                    <FaTrash className="mr-2" />
-                                                    Remove
-                                                </Link>
-                                            </Dropdown.Item>
-
-                                        </Dropdown.Menu>
-                                    </Dropdown>
-                                </div>
+                                {/* Gear Dropdown Componetnt */}
+                                <GearDropdown postUserId={post.user.id} postId={post.id} />
                             </div>
                             <div>
                                 <p className='py-2 text-justify text-base p-3'>{post.body}</p>

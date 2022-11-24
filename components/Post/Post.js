@@ -27,9 +27,7 @@ const Post = ({ posts }) => {
 
                                     </div>
                                 </div>
-                                <div>
-                                    ...
-                                </div>
+                                
                             </div>
                             <div>
                                 <p className='py-2 text-justify text-base p-3'>{post.body}</p>

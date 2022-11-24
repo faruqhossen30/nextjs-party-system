@@ -52,7 +52,7 @@ const HomePage = ({user}) => {
                         <HomepageSinglefeed />
                     </div>
                     <div className="hidden md:block md:col-span-3">
-                        <HomepageBirthday />
+                        {/* <HomepageBirthday /> */}
                         <HomepageFollow />
                     </div>
                 </div>)
