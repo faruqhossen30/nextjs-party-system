@@ -1,8 +1,8 @@
 import React, { useContext, useEffect, useState } from 'react'
-
 import { FaCheck, FaHeart, FaPlus, FaPlusCircle, FaUser, FaUsers } from 'react-icons/fa'
 import { AuthContext } from '../../contexts/AuthContext'
 import Skeleton from 'react-loading-skeleton'
+import 'react-loading-skeleton/dist/skeleton.css'
 
 const HomepageProfile = () => {
     const { user } = useContext(AuthContext)
@@ -18,7 +18,6 @@ const HomepageProfile = () => {
             {
                 isLoading && (<Skeleton count={5} />)
             }
-
             {profile &&
                 <div>
                     <div className='p-4 bg-white m-2 rounded'>
@@ -30,7 +29,7 @@ const HomepageProfile = () => {
                                 <img src={profile.avatar ? `${process.env.NEXT_PUBLIC_BACKEND_URL}/${profile.avatar}` : '/profile.jpg'} alt="" className='rounded w-24 h-24' />
 
                                 <div className='ml-2 pt-6'>
-                                    <h6 className='capitalize text-lg leading-none'><strong>{profile.name}</strong></h6>
+                                    <h6 className='capitalize text-lg leading-none'><strong>{profile.name || <Skeleton />}</strong></h6>
                                     <h6>Jessore</h6>
                                 </div>
                             </div>

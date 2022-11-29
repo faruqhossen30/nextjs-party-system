@@ -4,6 +4,8 @@ import axios from 'axios';
 import { FaPlusCircle } from 'react-icons/fa'
 import FollowButton from '../components/Button/FollowButton'
 import Link from 'next/link';
+import Skeleton from 'react-loading-skeleton'
+import PeopleSkeleton from './Skeleton/PeopleSkeleton';
 
 const singlePeople = ({ people }) => {
 
@@ -20,7 +22,12 @@ const singlePeople = ({ people }) => {
 
     return (
         <>
-            {
+            {isLoading && 
+               (
+                <PeopleSkeleton num={4} />
+               )
+            }
+            {people && (
                 people.map((person, index) => {
                     return (
                         <div key={index} className="col-span-6 sm:col-span-6 md:col-span-4 lg:col-span-3 bg-white rounded-sm mb-1 shadow-xl">
@@ -39,7 +46,7 @@ const singlePeople = ({ people }) => {
                                     <span className="text-muted">{person.occupation}</span>
                                 </div>
                             </div>
-                            
+
                             <div className="flex items-center justify-between p-2">
                                 <h2 className="text-base m-0">
                                     {person.followers_count}
@@ -50,9 +57,8 @@ const singlePeople = ({ people }) => {
                         </div>
                     )
                 })
-            }
+            )}
         </>
-
     )
 }
 
