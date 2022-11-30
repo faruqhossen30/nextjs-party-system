@@ -15,12 +15,10 @@ const Name = () => {
                 setName(res.data.name)
             })
             .catch(err => console.log(err))
-
     }, [])
     const changHandaller = (e) => {
         setName(e.target.value)
     }
-
     const submitHandaller = (e) => {
         e.preventDefault()
         axios.post(`${process.env.NEXT_PUBLIC_API_URL}/user/profile/name`, {
@@ -31,13 +29,9 @@ const Name = () => {
                 window.location.reload();
             })
     }
-
-
-
     return (
         <>
             <Navnew />
-
             <div className="grid grid-cols-12 mx-auto p-2">
                 <LeftSidebar />
                 {profile &&
@@ -47,12 +41,11 @@ const Name = () => {
                                 <label for="email-address-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Your Name</label>
                                 <div className='relative'>
                                     <div className='flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none'>
-                                       <FaUserAlt />
+                                        <FaUserAlt />
                                     </div>
                                     <input type="text" onChange={changHandaller} name="name" value={name} id='name' className='form-control' style={{ "paddingLeft": "40px" }} placeholder='Name' />
                                 </div>
                             </div>
-
                             <button className='flex items-center space-x-1 p-1 px-3 bg-emerald-700 text-white rounded-sm'>
                                 <FaSave />
                                 <span>Save</span>
@@ -64,5 +57,4 @@ const Name = () => {
         </>
     )
 }
-
 export default Name
